@@ -33,7 +33,7 @@
     <maven-site-plugin-version>3.12.1</maven-site-plugin-version>
     <maven-shade-plugin.version>3.2.4</maven-shade-plugin.version>
     <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
-    <maven-spotbugs-plugin-version>4.7.2.0</maven-spotbugs-plugin-version>
+    <maven-spotbugs-plugin-version>4.8.3.1</maven-spotbugs-plugin-version>
     <native.maven.plugin-version>0.9.18</native.maven.plugin-version>
     <exec-maven-plugin-version>3.1.0</exec-maven-plugin-version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
