@@ -6,6 +6,13 @@ To get a feel for the widget, checkout the [hosted demo](https://demo.singlr.ai/
 
 ![NoCaptcha](./nocaptcha.png)
 
+## Building
+The build needs JDK 21. From the repository root, run:
+```bash
+mvn -q verify
+```
+This builds and tests every module.
+
 ## Programming languages and frameworks
 The API is build in Java using Helidon 4.x. Powered by Java virtual threads. The UI is pure Javascript using Vite build tool.
 
