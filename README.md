@@ -10,12 +10,35 @@ To get a feel for the widget, checkout the [hosted demo](https://demo.singlr.ai/
 The API is build in Java using Helidon 4.x. Powered by Java virtual threads. The UI is pure Javascript using Vite build tool.
 
 ## Build and run
-Start the server With JDK21+
+
+### Prerequisites
+- JDK 21 or newer (`java -version` should report 21+)
+- Maven 3.8+
+
+### Build
+From the repository root:
 ```bash
-mvn package
+mvn package          # compile, run the tests and build api/target/api.jar
+mvn verify           # everything above plus checkstyle and SpotBugs, as CI does
+```
+
+### Run
+The server reads `config.yaml` and `config-<profile>.yaml` from the current working
+directory, so start it from the `api` directory:
+```bash
 cd api
 java -jar target/api.jar
 ```
+
+Once it logs `Singular nocaptcha is up at http://localhost:7080`:
+- http://localhost:7080/ serves the demo page and the `nocaptcha.js` widget
+- `POST /v1/nocaptcha/start` and `PUT /v1/nocaptcha/complete` on port 7080 are the API
+- http://localhost:7085/health/ready and `/health/live` are the health checks
+
+The default profile is `dev`. To pick another one (`dev`, `ci`, `staging`, `prod`), pass it as
+the first argument (`java -jar target/api.jar prod`) or set `NOCAPTCHA_PROFILE`. The
+`WAN_ID` and `WAN_ORIGINS` environment variables override the passkey relying party id and
+allowed origins. The server logs a warning if they are unset, which is fine for local use.
 
 ### Debugging
 
